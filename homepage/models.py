@@ -19,7 +19,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('homepage-index')
-     @property
+    @property
     def number_of_comments(self):
         return Comment.objects.filter(post=self).count()
     
