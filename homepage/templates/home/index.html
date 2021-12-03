@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="Hello, {{ user.username|default:'Guest' }}!"></div>
+Hello, {{ user.username|default:'Guest' }}!
+
 <li>
     <a class='btn btn-default' href="/accounts/login">Login</a>
   </li>

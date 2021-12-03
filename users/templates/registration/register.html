@@ -16,8 +16,10 @@
     
     <form method="post">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Register">
+        <fieldset class="form-group">
+        {{form.as_p}}
+        <center><button class="btn btn-outline-info" value="Register" type="submit">Register</center>
+        </fieldset>
     </form>
     
     <a href="{% url 'login' %}">Back to login</a>
