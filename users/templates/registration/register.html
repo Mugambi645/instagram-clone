@@ -2,25 +2,25 @@
 
 {% block content %}
 
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2" style="background-color: bisque; margin-right: 5rem; border: burlywood;">
-      <img src="https://i.gifer.com/YYZE.gif">
+   
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col">
+            <img src="https://i.gifer.com/YYZE.gif">
+          </div>
+     
+      <div class="col">
+    
+          <h2>Register</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Register">
+    </form>
+    
+    <a href="{% url 'login' %}">Back to login</a>
+      </div>
     </div>
-    <div class="col-md-auto">
-      Variable width content
-    </div>
-    <div class="col col-lg-5">
-      <h2>Register</h2>
-
-<form method="post">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Register">
-</form>
-
-<a href="{% url 'login' %}">Back to login</a>
-    </div>
-  </div>
-
 {% endblock %}
