@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="text-center">
-<h2>Register</h2>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2" style="background-color: bisque; margin-right: 5rem; border: burlywood;">
+      <img src="https://i.gifer.com/YYZE.gif">
+    </div>
+    <div class="col-md-auto">
+      Variable width content
+    </div>
+    <div class="col col-lg-5">
+      <h2>Register</h2>
 
 <form method="post">
     {% csrf_token %}
@@ -11,4 +20,7 @@
 </form>
 
 <a href="{% url 'login' %}">Back to login</a>
+    </div>
+  </div>
+
 {% endblock %}
