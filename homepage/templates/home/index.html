@@ -1,13 +1,10 @@
-{% extends "base.html" %} 
-{% block content %}
+{% extends 'base.html' %}
 
+{% block content %}
 Hello, {{ user.username|default:'Guest' }}!
 
-<div>
-    {% if user.is_authenticated %}
-        <a href="{% url 'users:logout_request' %}">Logout</a>
-    {% else %}
-        <a href="{% url 'users:login_request' %}">Login</a>
-    {% endif %}
-</div>
+<li>
+    <a class='btn btn-default' href="/accounts/login">Login</a>
+  </li>
+
 {% endblock %}
