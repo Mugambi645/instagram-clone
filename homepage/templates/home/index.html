@@ -69,14 +69,20 @@
      </div>
      {% for post in posts %}
  <div style="margin: 3rem auto; width: 40rem">
-  <div class="card"><a href="{% url 'homepage:post-detail' post.id %}">
+  <div class="card">
+    <h5 class="card-title">
+      <img class="rounded-circle mr-12 article-img" style="width: 70px;"
+      src="{{ post.author.profile.image.url }}">
+      <a class="mr-2" href="{% url 'homepage:post-detail' post.id %}">{{ post.author }}</a>
+    </h5>
+    <a href="{% url 'homepage:post-detail' post.id %}">
     <img
       src="{{ post.image.url }}"
       class="card-img-top"
       alt="Phone"
     /> {{ post.content }}</a>
     <div class="card-body">
-      <h5 class="card-title"></h5>
+      
       <h6 class="card-subtitle mb-2 text-muted"><a class="mr-2" href="{% url 'homepage:post-detail' post.id %}">{{ post.author }}</a></h6>
       <p class="card-text">
     
