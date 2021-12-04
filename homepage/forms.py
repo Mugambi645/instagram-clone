@@ -1,6 +1,6 @@
 from django import forms
 #import comment model
-from .models import Comment
+from .models import Comment,Post
 
 
 class CommentForm(forms.ModelForm):
@@ -13,3 +13,6 @@ class CommentForm(forms.ModelForm):
         """
         model = Comment
         fields = ['description']
+
+
+#post model form created for ui styling

@@ -15,3 +15,4 @@ def register(request):
             return render(request,'home/index.html')
     context['form']=form
     return render(request,'registration/register.html',context)
+

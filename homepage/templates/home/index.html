@@ -38,20 +38,23 @@
               </div></button>
           </form>
         </ul>
-        {% if user.is_authenticated %}
+        
         <span class="navbar-text">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"><i class="far fa-plus-square" style="font-size: 7vh; margin-right: 2rem;"></i></a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'homepage:new_post' %}"><i class="far fa-plus-square" style="font-size: 7vh; margin-right: 2rem;"></i></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#"><i class="far fa-heart" style="font-size: 7vh; margin-right: 2rem;"></i></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#"><i class="far fa-user-circle" style="font-size: 7vh; margin-right: 3rem;"></i></a>
+                        
+              
+                 
                 </li>
               </ul>
-          {% endif %}
+          
         </span>
       </div>
     </div>

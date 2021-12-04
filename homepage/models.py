@@ -7,7 +7,7 @@ class Post(models.Model):
     """
     Post model class to define post database table
     """
-    description = models.TextField()
+    description = models.CharField(max_length=400)
     image = models.ImageField(upload_to='uploads/')
     title = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
@@ -18,7 +18,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('homepage-index')
+        return reverse('homepage:index')
     @property
     def number_of_comments(self):
         return Comment.objects.filter(post=self).count()
