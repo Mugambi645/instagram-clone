@@ -3,20 +3,15 @@
 <div class="container">
     <form method="POST" class="col-6 no-padding">
         {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Delete Post</legend>
-            Do you really want to delete
-        </fieldset>
-        <h2 class="bg-steel p-2"
-           style="border: 1px solid white; border-radius: 4px; word-wrap: break-word;">
-           {{ post.title }}
-    </h2>
-        <div class="form-group">
-            <button class="btn btn-outline-primary" type="submit">Yes</button>
-        </div>
-        <div class="form-group">
-            <a href="{% url 'homepage:post-detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
-        </div>
+   
+        <div class="card bg-dark text-white">
+            <img src="{{post.image.url}}" class="card-img" alt="delete">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Last updated 3 mins ago</p>
+            </div>
+          </div>
     </form>
 </div>
    

@@ -80,10 +80,12 @@
       src="{{ post.image.url }}"
       class="card-img-top"
       alt="Phone"
-    /> {{ post.content }}</a>
+    /> </a><p class="mb-4">
+      {{ post.description }}
+  </p>
     <div class="card-body">
       
-      <h6 class="card-subtitle mb-2 text-muted"><a class="mr-2" href="{% url 'homepage:post-detail' post.id %}">{{ post.author }}</a></h6>
+      <h6 class="card-subtitle mb-2 text-muted">
       <p class="card-text">
     
       <div class="row align-items-center">
