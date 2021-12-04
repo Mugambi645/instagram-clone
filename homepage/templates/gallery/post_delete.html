@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <form method="POST" class="col-6 no-padding">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Delete Post</legend>
+            Do you really want to delete
+        </fieldset>
+        <h2 class="bg-steel p-2"
+           style="border: 1px solid white; border-radius: 4px; word-wrap: break-word;">
+           {{ post.title }}
+    </h2>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Yes</button>
+        </div>
+        <div class="form-group">
+            <a href="{% url 'homepage:post-detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+   
+{% endblock content %}

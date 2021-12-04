@@ -11,14 +11,16 @@ class Post(models.Model):
     image = models.ImageField(upload_to='uploads/')
     title = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
-    user_posted = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     likes=models.IntegerField(null=True, default=0)
 
     def __str__(self):
         return self.title
 
+
     def get_absolute_url(self):
         return reverse('homepage:index')
+    
     @property
     def number_of_comments(self):
         return Comment.objects.filter(post=self).count()

@@ -51,7 +51,7 @@ def post(request, pk):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = Comment(author= user,content=form.cleaned_data["description"],post=post)
+            comment = Comment(author= user,description=form.cleaned_data["description"],post=post)
             comment.save()
 
     comments = Comment.objects.filter(post=post).order_by('-date_posted')
