@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <form method="POST" class="col-6 no-padding">
+    <form method="POST" class="col-6 no-padding" style="margin-top: 9rem; text-align: center; margin-left: 14rem;">
         {% csrf_token %}
    
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white text-center">
             <img src="{{post.image.url}}" class="card-img" alt="delete">
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text">Last updated 3 mins ago</p>
+            <div class="card-img-overlay" style="margin-top: 7rem;">
+              <h5 class="card-title">{{ post.description }}</h5>
+                 
+              <p class="card-text"> <strong> Are you sure you want to delete {{post.title}}?</p>
+              <p class="card-text">
+                <button class="btn btn-outline-primary" type="submit">Yes</button>
+                <a href="{% url 'homepage:post-detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
+              </p>
             </div>
           </div>
     </form>
