@@ -65,8 +65,46 @@
       <div class="row">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="margin-left: 10rem; margin-bottom: 3rem;  display: inline-block;">
  <br>
-     
- 
+     </div>
+     </div>
+     {% for post in posts %}
+ <div style="margin: 3rem auto; width: 40rem">
+  <div class="card"><a href="{% url 'homepage:post-detail' post.id %}">
+    <img
+      src="{{ post.image.url }}"
+      class="card-img-top"
+      alt="Phone"
+    /> {{ post.content }}</a>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><a class="mr-2" href="{% url 'homepage:post-detail' post.id %}">{{ post.author }}</a></h6>
+      <p class="card-text">
+        {% if post.author == user %}
+        <div class="row">
+          <div class="col-sm-5 col-md-6"
+            href="{% url 'homepage:post-delete' post.id %}">delete</div>
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"
+            href="{% url 'homepage:post-update' post.id %}">update</div></div>
+        {%  endif %}
+      </p>
+      <a href="{% url 'homepage:like' post.pk%}">
+        <i style="color: red; font-size: 16px;" class="fa fa-heart"></i>
+        {{post.likes}} like(s)
+    </a>
+    <small style="opacity: 0.8; margin-left:15px; color: rgba(255, 255, 255, 0.1) !important;">
+      <a href="/post/{{post.id}}/">
+          <i style=" font-size: 16px; color: blue;" class="fa fa-comment"></i>
+          {{ post.number_of_comments }} comment(s)
+      </a>
+  </small>
+  <small style="opacity: 0.8; " class="white-important d-flex full-width flex-row-reverse">
+    {{ post.date_posted | date:"H:i l, d.m.y" }}
+</small>
+      <a href="#" class="btn btn-primary">Add to Cart</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
 <script>
     function top() {
     document.getElementById( 'top' ).scrollIntoView();    
