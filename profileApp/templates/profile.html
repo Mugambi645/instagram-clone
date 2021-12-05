@@ -24,5 +24,26 @@
         </div>
     </form>
     </div>
+    <br><br>
+    {% for post in posts %}
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{post.description}}</h5>
+        <p class="card-text">   <img
+          src="{{ post.image.url }}"
+          class="card-img-top"
+          alt="Phone"
+        /> </a></p>
+        <p>Posted on: 
+          {{ post.date_posted | date:"H:i l, d.m.y" }}
+      </p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
 {% endblock content %}
 
