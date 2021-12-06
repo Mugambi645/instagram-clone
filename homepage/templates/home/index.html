@@ -45,13 +45,13 @@
                   <a class="nav-link active" aria-current="page" href="{% url 'homepage:new_post' %}">New+</i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href=""></a>
+                  <a class="nav-link" href="{% url 'profileApp:profile'  %}">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'profileApp:profile'  %}">Profile</i></a>
-{% if user.is_authenticated %}
+                  <a class="nav-link" href="{% url 'logout' %}">Logout</i></a>
+</li>
               <li class="nav-item">
-                <p><a href="{% url 'logout' %}">Log Out</a></p>
+                <p><a href=""></a></p>
               </li>
                  {% endif %}
                 </li>
