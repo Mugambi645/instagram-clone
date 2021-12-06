@@ -12,8 +12,8 @@ class Profile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
       #image field
-    #image = CloudinaryField('image')
-    image = models.ImageField(default='profile.jpg', upload_to='profile_pics')
+    image = CloudinaryField('image')
+    #image = models.ImageField(default='profile.jpg', upload_to='profile_pics')
 
     def __str__(self):
         return f'{self.user.username} Profile' 
