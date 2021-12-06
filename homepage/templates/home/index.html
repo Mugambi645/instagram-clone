@@ -45,13 +45,15 @@
                   <a class="nav-link active" aria-current="page" href="{% url 'homepage:new_post' %}"><i class="far fa-plus-square" style="font-size: 7vh; margin-right: 2rem;"></i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="far fa-heart" style="font-size: 7vh; margin-right: 2rem;"></i></a>
+                  <a class="nav-link" href=""><i class="far fa-heart" style="font-size: 7vh; margin-right: 2rem;"></i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'profileApp:profile' %}"><i class="far fa-user-circle" style="font-size: 7vh; margin-right: 3rem;"></i></a>
-                        
-              
-                 
+                  <a class="nav-link" href="{% url 'profileApp:profile'  %}"><i class="far fa-user-circle" style="font-size: 7vh; margin-right: 3rem;"></i></a>
+{% if user.is_authenticated %}
+              <li class="nav-item">
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+              </li>
+                 {% endif %}
                 </li>
               </ul>
           
@@ -71,8 +73,8 @@
  <div style="margin: 3rem auto; width: 40rem">
   <div class="card">
     <h5 class="card-title">
-      <img class="rounded-circle mr-12 article-img" style="width: 70px;"
-      src="{{ post.author.profile.image.url }}">
+      <img class="rounded-circle mr-12 article-img" style="width: 70px; height: 60px;"
+      src="{{ post.author.profile.image.url }}" >
       <a class="mr-2" href="{% url 'homepage:post-detail' post.id %}">{{ post.author }}</a>
     </h5>
     <a href="{% url 'homepage:post-detail' post.id %}">
@@ -118,6 +120,7 @@
   <div class="col-md-10">
       <div class="card mt-4 mr-2 ml-2">
           <div class="card-title text-secondary mt-2 mr-2 ml-2 ">Suggestions</div>
+          {% if user.is_authenticated %}
           {% for post in posts %}
           <div class="container">
               <div class="row">
@@ -126,7 +129,7 @@
                            width="45px" height="45px">
                   </div>
                   <div class="col-md-6 mr-2 mt-2">
-                      <span><a href="{% url 'profileApp:user_profile' user.username  %}">{{user.username}}</a></span>
+                    <span><a href="{% url 'profileApp:user_profile' user.username  %}">{{user.username}}</a></span>
                   </div>
                   <div class="col-md-4">
                   </div>
@@ -134,7 +137,7 @@
           </div>
 
           {% endfor %}
-
+          {% endif %}
 <script>
     function top() {
     document.getElementById( 'top' ).scrollIntoView();    

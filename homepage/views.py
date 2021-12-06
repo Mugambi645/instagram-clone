@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from django.contrib.auth.decorators import login_required 
 # Create your views here.
 #home view
 
@@ -38,7 +38,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-
+@login_required
 def post(request, pk):
     """
     View to handle post model
@@ -91,9 +91,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         else:
             return False
 
-
+@login_required
 def like(request,pk):
     post = Post.objects.get(pk=pk)
     post.likes+=1
     post.save()
     return redirect('homepage:index')
+

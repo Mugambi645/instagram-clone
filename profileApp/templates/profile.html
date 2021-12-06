@@ -5,7 +5,7 @@
     <div class="content-section">
       <div class="media">
           {% load static %}
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width: 60px; ">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width: 100px;height: 90px;">
         <div class="media-body">
          <a href="{% url 'homepage:index' %}"><h2 class="account-heading">{{ user.username }}</h2></a>    <div class="post-details mt-3 mb-3">
             <span class="mr-5"><strong>{{images.count}}</strong> Posts</span>
@@ -14,6 +14,8 @@
         </div>
 
           <p class="text-secondary">{{ user.email }}</p>
+
+          
         </div>
       </div>
       <!-- FORM HERE -->
@@ -40,7 +42,7 @@
       <div class="card-body">
         <h5 class="card-title">{{post.description}}</h5>
         <p class="card-text">   <img
-          src="{{ post.image.url }}"
+          src="{{ post.author.profile.image.url }}"
           class="card-img-top"
           alt="Phone"
         /> </a></p>
