@@ -31,7 +31,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#"></a>
           </li>
-          <form class="d-flex" style="margin-left: 8rem;">
+          <form class="d-flex" style="margin-left: 8rem;" action="{% url 'profileApp:search' %}">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit"><i class="far fa-circle"></i>
                 <span class="visually-hidden"></span>
@@ -112,6 +112,29 @@
   </div>
 </div>
 {% endfor %}
+
+
+<div class="row">
+  <div class="col-md-10">
+      <div class="card mt-4 mr-2 ml-2">
+          <div class="card-title text-secondary mt-2 mr-2 ml-2 ">Suggestions</div>
+          {% for post in posts %}
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-2 mr-3 mt-1 mb-2">
+                      <img class="rounded-circle" src="{{ user.profile.image.url }}"
+                           width="45px" height="45px">
+                  </div>
+                  <div class="col-md-6 mr-2 mt-2">
+                      <span><a href="{% url 'profileApp:user_profile' user.username  %}">{{user.username}}</a></span>
+                  </div>
+                  <div class="col-md-4">
+                  </div>
+              </div>
+          </div>
+
+          {% endfor %}
+
 <script>
     function top() {
     document.getElementById( 'top' ).scrollIntoView();    

@@ -7,6 +7,7 @@ app_name = "homepage"
 urlpatterns = [
     path("index", views.index, name="index"),
     path('post/new/', PostCreateView.as_view(), name='new_post'),
+    
     path('', PostListView.as_view(), name='instagram-home'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
