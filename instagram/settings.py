@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import os
 from pathlib import Path
 
@@ -65,6 +68,7 @@ INSTALLED_APPS = [
     'profileApp',
     'homepage',
     'crispy_forms',
+    'cloudinary'
 
 ]
 
@@ -99,7 +103,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'instagram.wsgi.application'
 
-
+cloudinary.config( 
+  cloud_name = "dgjtu9gvn", 
+  api_key = "129752669554243", 
+  api_secret = "9f7PWZty2n1W_CfRccWscy27JWQ" 
+)
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

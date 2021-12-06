@@ -2,13 +2,16 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User 
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
     """
     Post model class to define post database table
     """
     description = models.CharField(max_length=400)
-    image = models.ImageField(upload_to='uploads/')
+      #image field
+    image = CloudinaryField('image')
+    #image = models.ImageField(upload_to='uploads/')
     title = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
