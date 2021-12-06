@@ -10,8 +10,8 @@ class Post(models.Model):
     """
     description = models.CharField(max_length=400)
       #image field
-    image = CloudinaryField('image')
-    #image = models.ImageField(upload_to='uploads/')
+    #image = CloudinaryField('image')
+    image = models.ImageField(upload_to='uploads/')
     title = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
