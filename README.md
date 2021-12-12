@@ -3,7 +3,6 @@
 ## Language(s) And Technologies used
 - Python
 - Boostrap
-- Flask
 - Html
 - css
 ## Setup requirements and Installation
